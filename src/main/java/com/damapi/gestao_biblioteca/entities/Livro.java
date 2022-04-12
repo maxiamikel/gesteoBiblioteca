@@ -2,6 +2,7 @@ package com.damapi.gestao_biblioteca.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -29,12 +30,20 @@ public class Livro  implements Serializable{
 
 	}
 
-	public Livro(Long id, String titulo, LocalDate datePublicacao, String idioma, Categoria categoria) {
+	public Livro(Long id, String titulo, String idioma, Categoria categoria) {
 		this.id = id;
 		this.titulo = titulo;
-		this.datePublicacao = datePublicacao;
 		this.idioma = idioma;
 		this.categoria = categoria;
+	}
+	
+	
+
+	public Livro(String titulo, String idioma, Categoria cate) {
+		super();
+		this.titulo = titulo;
+		this.idioma = idioma;
+		this.categoria = cate;
 	}
 
 	public Long getId() {
