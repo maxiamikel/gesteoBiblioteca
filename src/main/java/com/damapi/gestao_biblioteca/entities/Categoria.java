@@ -10,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Categoria implements Serializable {
@@ -22,7 +25,8 @@ public class Categoria implements Serializable {
 	private String nome;
 	private String descripcao;
 
-	@ManyToOne
+	@JsonIgnore
+	@OneToMany(mappedBy = "categoria")
 	private List<Livro> livros = new ArrayList<>();
 
 	public Categoria() {
