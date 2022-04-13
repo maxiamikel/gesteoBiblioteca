@@ -1,19 +1,19 @@
 package com.damapi.gestao_biblioteca.controllers.exceptions;
 
 public class CommonExceptions {
-	
+
 	private Long timestamp;
 	private int status;
 	private String error;
-	//private Long status;
-	
+	// private Long status;
+
 	public CommonExceptions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public CommonExceptions(Long timestamp, int status, String error) {
-		
+
 		this.timestamp = timestamp;
 		this.error = error;
 		this.status = status;
@@ -42,8 +42,5 @@ public class CommonExceptions {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
-	
-	
 
 }

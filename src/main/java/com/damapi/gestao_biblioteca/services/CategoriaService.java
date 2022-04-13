@@ -1,6 +1,7 @@
 package com.damapi.gestao_biblioteca.services;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
@@ -39,6 +40,10 @@ public class CategoriaService {
 
 		this.cateR.saveAll(Arrays.asList(cat1, cat2));
 		this.livR.saveAll(Arrays.asList(li1, li, li2));
+	}
+	
+	public List<Categoria> getAllCategoria(){
+		return repo.findAll();
 	}
 
 }
