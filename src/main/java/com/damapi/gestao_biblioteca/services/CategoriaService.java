@@ -8,6 +8,7 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.damapi.gestao_biblioteca.dto.CategoriaDTO;
 import com.damapi.gestao_biblioteca.entities.Categoria;
 import com.damapi.gestao_biblioteca.entities.Livro;
 import com.damapi.gestao_biblioteca.repositories.CategoriaRepository;
@@ -41,9 +42,24 @@ public class CategoriaService {
 		this.cateR.saveAll(Arrays.asList(cat1, cat2));
 		this.livR.saveAll(Arrays.asList(li1, li, li2));
 	}
-	
-	public List<Categoria> getAllCategoria(){
+
+	public List<Categoria> getAllCategoria() {
 		return repo.findAll();
 	}
+
+	public Categoria salvarCategoria(Categoria categoria) {
+		categoria.setId(null);
+		Categoria obj = repo.save(categoria);
+		return obj;
+	}
+
+	public Categoria atualizarCategoria(Long id, CategoriaDTO objDTO) {
+		Categoria obj = obterCategoriaPorId(id);
+		obj.setDescripcao(obj.getDescripcao());
+		obj.setNome(obj.getNome());
+		return repo.save(obj);
+	}
+
+	
 
 }
